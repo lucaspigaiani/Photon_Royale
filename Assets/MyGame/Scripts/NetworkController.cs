@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
@@ -7,32 +6,23 @@ using TMPro;
 
 public class NetworkController : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private Transform content;
-    [SerializeField] private GameObject roomListItem;
-
-    [SerializeField] private TextMeshProUGUI infoStatus;
-    [SerializeField] private TextMeshProUGUI infoPlayerLobby;
-    [SerializeField] private TextMeshProUGUI infoPlayerGame;
-
-    private string infoPlayerLobbyTxt = "Players in lobby: ";
-    private string infoPlayerGameTxt = "Players in game: ";
-
-    private Dictionary<string, RoomInfo> cachedRoomList = new Dictionary<string, RoomInfo>();
-    private Dictionary<string, GameObject> roomListEntries = new Dictionary<string, GameObject>();
-
-    private void FixedUpdate()
+    public override void OnConnectedToMaster()
     {
-        infoStatus.text = PhotonNetwork.NetworkClientState.ToString();
-        infoPlayerLobby.text = infoPlayerLobbyTxt + PhotonNetwork.CountOfPlayersOnMaster.ToString();
-        infoPlayerGame.text = infoPlayerGameTxt + PhotonNetwork.CountOfPlayersInRooms.ToString();
+        PhotonNetwork.JoinLobby();
+        MenuManager.Instance.ShowRoomListPanel();
+    }
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        MenuManager.Instance.ClearRoomListView();
+        MenuManager.Instance.UpdateCachedRoomList(roomList);
+        MenuManager.Instance.UpdateRoomListView();
     }
 
     public void CreateRoom()
     {
-        if (!PhotonNetwork.InLobby)
-        {
-            return;
-        }
+        if (!PhotonNetwork.InLobby) return;
+
         string tempRoomName = "Room" + Random.Range(1, 1000);
         byte maxRoomPlayers = (byte)Random.Range(2, 3);
 
@@ -47,28 +37,20 @@ public class NetworkController : MonoBehaviourPunCallbacks
 
     public void LeaveRoom()
     {
-        if (!PhotonNetwork.InRoom)
-        {
-            return;
-        }
+        if (!PhotonNetwork.InRoom) return;
         PhotonNetwork.LeaveRoom();
     }
+
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         Debug.Log(message);
         PhotonNetwork.JoinLobby();
-
-    }
-    public override void OnConnectedToMaster()
-    {
-        PhotonNetwork.JoinLobby();
     }
 
-    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    public override void OnJoinedRoom()
     {
-        ClearRoomListView();
-        UpdateCachedRoomList(roomList);
-        UpdateRoomListView();
+        MenuManager.Instance.OnJoinedRoom();
+        UpdatePlayerList();
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -78,71 +60,31 @@ public class NetworkController : MonoBehaviourPunCallbacks
             PhotonNetwork.CurrentRoom.IsOpen = false;
             PhotonNetwork.CurrentRoom.IsVisible = false;
         }
+
+        UpdatePlayerList(); // Atualiza a UI dos jogadores
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        if (PhotonNetwork.CurrentRoom.IsOpen == false && PhotonNetwork.CurrentRoom.IsVisible == false)
+        if (!PhotonNetwork.CurrentRoom.IsOpen && !PhotonNetwork.CurrentRoom.IsVisible)
         {
             PhotonNetwork.CurrentRoom.IsOpen = true;
             PhotonNetwork.CurrentRoom.IsVisible = true;
         }
+
+        UpdatePlayerList(); // Atualiza a UI dos jogadores
     }
 
     public override void OnLeftLobby()
     {
-        cachedRoomList.Clear();
-        ClearRoomListView();
+        MenuManager.Instance.OnLeftLobby();
     }
 
-    private void ClearRoomListView() 
+    private void UpdatePlayerList()
     {
-        foreach (GameObject entry in roomListEntries.Values)
+        if (MenuManager.Instance != null)
         {
-            Destroy(entry);
-        }
-        roomListEntries.Clear();
-    }
-
-    private void UpdateRoomListView()
-    {
-        foreach (RoomInfo info in cachedRoomList.Values)
-        {
-            if (!info.IsOpen || !info.IsVisible || info.RemovedFromList)
-            {
-                continue;
-            }
-
-            GameObject objRoomListItem = Instantiate(roomListItem);
-            objRoomListItem.transform.parent = content;
-            objRoomListItem.transform.position = Vector3.one;
-            objRoomListItem.GetComponent<RoomListItem>().Inicialize(info.Name, info.PlayerCount, info.MaxPlayers);
-
-            roomListEntries.Add(info.Name, objRoomListItem);
-        }
-    }
-
-    private void UpdateCachedRoomList(List<RoomInfo> list)
-    {
-        foreach (RoomInfo info in list)
-        {
-            if (!info.IsOpen || !info.IsVisible || info.RemovedFromList)
-            {
-                if (cachedRoomList.ContainsKey(info.Name))
-                {
-                    cachedRoomList.Remove(info.Name);
-                }
-                continue;
-            }
-
-            if (cachedRoomList.ContainsKey(info.Name))
-            {
-                cachedRoomList[info.Name] = info;
-            }
-            else
-            {
-                cachedRoomList.Add(info.Name, info);
-            }
+            MenuManager.Instance.UpdatePlayerList(PhotonNetwork.PlayerList);
         }
     }
 }
