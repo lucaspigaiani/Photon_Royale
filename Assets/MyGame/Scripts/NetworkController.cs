@@ -6,6 +6,9 @@ using TMPro;
 
 public class NetworkController : MonoBehaviourPunCallbacks
 {
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject playersParent;
+
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();
@@ -51,6 +54,9 @@ public class NetworkController : MonoBehaviourPunCallbacks
     {
         MenuManager.Instance.OnJoinedRoom();
         UpdatePlayerList();
+        GameObject newPlayer = PhotonNetwork.Instantiate(player.name, this.transform.position, this.transform.rotation);
+        newPlayer.transform.parent = playersParent.transform;
+        newPlayer.name = PhotonNetwork.LocalPlayer.UserId;
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)

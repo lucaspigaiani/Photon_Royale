@@ -124,7 +124,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4861930177346887498}
         m_TargetAssemblyTypeName: PlayerListItem, Assembly-CSharp
-        m_MethodName: KickOut
+        m_MethodName: KickPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

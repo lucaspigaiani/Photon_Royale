@@ -17,14 +17,18 @@ public class PlayerListItem : MonoBehaviour
 
         // Apenas o Master Client pode ver o botão de expulsar
         kickoutButton.SetActive(PhotonNetwork.IsMasterClient);
+
+        if (PhotonNetwork.IsMasterClient && PhotonNetwork.LocalPlayer.UserId == playerData.UserId)
+        {
+            kickoutButton.SetActive(false);
+        }
     }
 
-    public void KickOut()
+    public void KickPlayer()
     {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            PhotonNetwork.CloseConnection(player);
-        }
-        Destroy(this.gameObject);
+        GameObject.Find(PhotonNetwork.LocalPlayer.UserId).GetComponent<PlayerController>().KickPlayer(player);
     }
+
+
+
 }

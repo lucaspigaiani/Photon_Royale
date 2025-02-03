@@ -105,7 +105,7 @@ public class MenuManager : MonoBehaviour
 
     public void UpdatePlayerList(Player[] players)
     {
-        foreach (Transform child in content)
+        foreach (Transform child in playerLobbyListContent)
         {
             Destroy(child.gameObject);
         }
