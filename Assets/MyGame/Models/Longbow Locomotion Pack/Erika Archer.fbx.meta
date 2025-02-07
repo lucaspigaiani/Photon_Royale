@@ -8,27 +8,27 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Erika_Archer_Clothes_diffuse
-    second: {fileID: 2800000, guid: 269ca651ffa5d654e9cc2c5defb849fa, type: 3}
+    second: {fileID: 2800000, guid: 9903d243194b6644c8806b50af08a224, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Erika_Archer_Clothes_normal
-    second: {fileID: 2800000, guid: 0eacf30515889854d960c221d00bfaa3, type: 3}
+    second: {fileID: 2800000, guid: 309feba30d5611d4baf914abaaf7a948, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: FemaleFitA_Body_diffuse
-    second: {fileID: 2800000, guid: 16b8495687a8cbf49bf596064b8deb61, type: 3}
+    second: {fileID: 2800000, guid: 901d82d537f702d408695f487acdab94, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: FemaleFitA_StdNM
-    second: {fileID: 2800000, guid: 5c0467d025f57584aa909b5c72516064, type: 3}
+    second: {fileID: 2800000, guid: fc48c6935c981f2408e96239eb33e2bb, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: FemaleFitA_eyelash_diffuse
-    second: {fileID: 2800000, guid: 2416cb5b74efe6341b727c58904ac671, type: 3}
+    second: {fileID: 2800000, guid: 08021627517485a4dacde42b732a9cba, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -49,7 +49,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -118,13 +118,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
