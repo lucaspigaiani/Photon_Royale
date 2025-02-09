@@ -309,10 +309,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0a65d22703a0943a531c13c71ed85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterID: 0
-  _isSelected: 0
-  _playerOwnerName: 
-  _playerOwnerID: 0
 --- !u!114 &59364956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,10 +443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0a65d22703a0943a531c13c71ed85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterID: 0
-  _isSelected: 0
-  _playerOwnerName: 
-  _playerOwnerID: 0
 --- !u!114 &78794592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -766,10 +758,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0a65d22703a0943a531c13c71ed85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterID: 0
-  _isSelected: 0
-  _playerOwnerName: 
-  _playerOwnerID: 0
 --- !u!114 &166695350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2299,10 +2287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0a65d22703a0943a531c13c71ed85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterID: 0
-  _isSelected: 0
-  _playerOwnerName: 
-  _playerOwnerID: 0
 --- !u!1 &512200945
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,10 +2864,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0a65d22703a0943a531c13c71ed85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterID: 0
-  _isSelected: 0
-  _playerOwnerName: 
-  _playerOwnerID: 0
 --- !u!114 &872163963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3269,10 +3249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0a65d22703a0943a531c13c71ed85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterID: 0
-  _isSelected: 0
-  _playerOwnerName: 
-  _playerOwnerID: 0
 --- !u!114 &913021551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4344,10 +4320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0a65d22703a0943a531c13c71ed85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterID: 0
-  _isSelected: 0
-  _playerOwnerName: 
-  _playerOwnerID: 0
 --- !u!114 &1228108676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4711,8 +4683,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9abb54946a99014d8f659339fc32856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _messageText: {fileID: 231013711}
-  _messageDisplayDuration: 3
 --- !u!1 &1259063269
 GameObject:
   m_ObjectHideFlags: 0
@@ -4961,10 +4931,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0a65d22703a0943a531c13c71ed85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterID: 0
-  _isSelected: 0
-  _playerOwnerName: 
-  _playerOwnerID: 0
 --- !u!114 &1329195127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5367,10 +5333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0a65d22703a0943a531c13c71ed85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterID: 0
-  _isSelected: 0
-  _playerOwnerName: 
-  _playerOwnerID: 0
 --- !u!114 &1349269636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5639,10 +5601,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0a65d22703a0943a531c13c71ed85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterID: 0
-  _isSelected: 0
-  _playerOwnerName: 
-  _playerOwnerID: 0
 --- !u!114 &1382234532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5959,22 +5917,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1501408595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bba921e90bcdfea4887e4655d4a6303f, type: 3}
+  m_Script: {fileID: 11500000, guid: 44cefa696bc572a4684fcffd9b1ecccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerNameInput: {fileID: 1002475888}
   loginPanel: {fileID: 1722068184}
-  roomListPanel: {fileID: 2113477157}
-  roomPanel: {fileID: 335374556}
-  content: {fileID: 1259063270}
-  roomListItem: {fileID: 4997538706905166540, guid: 0704b2159d775274881d7b8b3a52cf73,
-    type: 3}
-  playerLobbyListContent: {fileID: 1184382651}
-  playerListItem: {fileID: 7558786594339504198, guid: 3d03287c95a2d314aabc384c8cf18814,
-    type: 3}
-  infoStatus: {fileID: 252888629}
-  infoPlayerLobby: {fileID: 39843833}
-  infoPlayerGame: {fileID: 1977829535}
+  roomListPanel: {fileID: 1184382650}
+  roomPanel: {fileID: 0}
+  content: {fileID: 0}
+  roomListItem: {fileID: 0}
+  playerLobbyListContent: {fileID: 0}
+  playerListItem: {fileID: 0}
+  infoStatus: {fileID: 0}
+  infoPlayerLobby: {fileID: 0}
+  infoPlayerGame: {fileID: 0}
 --- !u!1 &1539912659
 GameObject:
   m_ObjectHideFlags: 0
@@ -8021,10 +7977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0a65d22703a0943a531c13c71ed85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterID: 0
-  _isSelected: 0
-  _playerOwnerName: 
-  _playerOwnerID: 0
 --- !u!114 &2024009779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8361,10 +8313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0a65d22703a0943a531c13c71ed85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterID: 0
-  _isSelected: 0
-  _playerOwnerName: 
-  _playerOwnerID: 0
 --- !u!114 &2096053702
 MonoBehaviour:
   m_ObjectHideFlags: 0
